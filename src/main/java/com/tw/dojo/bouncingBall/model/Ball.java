@@ -14,6 +14,7 @@ public abstract class Ball {
         this.radius = radius;
     }
 
+
     protected Ball(int x, int y) {
         this(x, y, DEFAULT_RADIUS);
     }

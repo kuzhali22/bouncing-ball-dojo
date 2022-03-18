@@ -21,6 +21,7 @@ public class BouncingElasticBall extends Ball {
     }
 
     @Override
+
     public void update() {
         direction = reverseDirectionIfNecessary();
         y = move();
