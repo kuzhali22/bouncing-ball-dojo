@@ -12,7 +12,7 @@ public class Elastic implements Behaviour {
         this.growthDirection = growthDirection;
     }
 
-
+    @Override
     public void update(Ball ball) {
         this.radius = ball.radius;
         growthDirection = reverseGrowthDirectionIfNecessary();

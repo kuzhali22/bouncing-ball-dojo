@@ -11,11 +11,13 @@ public class BallFactory {
     }
 
     private static Ball bouncingElasticBall(int centerX, int centerY, int direction, int radius, int resize) {
-        return new BouncingElasticBall(centerX, centerY, direction, radius, resize);
+        Behaviour[] behaviours = new Behaviour[]{new Bouncing(direction),
+        new Elastic(direction)};
+        return new Ball(centerX, centerY, behaviours);
     }
 
     public static Ball bouncingBall(int centerX, int centerY, int direction) {
-        Bouncing behaviour = new Bouncing(direction);
+        Behaviour behaviour = new Bouncing(direction);
         return new Ball(centerX, centerY, behaviour);
     }
 

@@ -15,6 +15,7 @@ public class Bouncing implements Behaviour {
         this.direction = direction;
     }
 
+    @Override
     public void update(Ball ball) {
         this.y = ball.y;
         direction = reverseDirectionIfNecessary();

@@ -7,21 +7,21 @@ public class Ball {
     protected int x;
     protected int y;
     protected int radius;
-    private Behaviour behaviour;
+    private Behaviour[] behaviours;
 
     public Ball(int x, int y, int radius, Behaviour behaviour) {
         this(x, y, radius);
-        this.behaviour = behaviour;
+        this.behaviours = new Behaviour[]{behaviour};
     }
 
     public Ball(int x, int y, Behaviour behaviour) {
         this(x, y);
-        this.behaviour = behaviour;
+        this.behaviours = new Behaviour[]{behaviour};
     }
 
-
-    public void update() {
-        behaviour.update(this);
+    public Ball(int x, int y, Behaviour[] behaviours) {
+        this(x, y);
+        this.behaviours = behaviours;
     }
 
     protected Ball(int x, int y, int radius) {
@@ -30,11 +30,17 @@ public class Ball {
         this.radius = radius;
     }
 
-
     protected Ball(int x, int y) {
         this(x, y, DEFAULT_RADIUS);
     }
 
+    public void update() {
+        for (Behaviour behaviour :
+                this.behaviours) {
+            behaviour.update(this);
+        }
+
+    }
 
     // DO NOT CHANGE
     public int radius() {
