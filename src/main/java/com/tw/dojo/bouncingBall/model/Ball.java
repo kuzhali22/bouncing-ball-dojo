@@ -19,6 +19,7 @@ public abstract class Ball {
         this(x, y, DEFAULT_RADIUS);
     }
 
+
     // DO NOT CHANGE
     public int radius() {
         return radius;

@@ -1,12 +1,22 @@
 package com.tw.dojo.bouncingBall.model;
 
 public class Elastic implements Behaviour {
+    public static final int GROWTH_RATE = 2;
 
+    public static final int GROW = 1;
+    public static final int SHRINK = -1;
     private int growthDirection;
     protected int radius;
 
     public Elastic(int growthDirection) {
         this.growthDirection = growthDirection;
+    }
+
+
+    public int update(int radius) {
+        this.radius = radius;
+        growthDirection = reverseGrowthDirectionIfNecessary();
+        return next();
     }
 
     /***********************************************************************************
@@ -32,24 +42,19 @@ public class Elastic implements Behaviour {
     }
 
     private int switchDirection() {
-        return growing() ? ElasticBall.SHRINK : ElasticBall.GROW;
+        return growing() ? Elastic.SHRINK : Elastic.GROW;
     }
 
     private int next() {
-        return radius + (ElasticBall.GROWTH_RATE * growthDirection);
+        return radius + (Elastic.GROWTH_RATE * growthDirection);
     }
 
     private boolean shrinking() {
-        return growthDirection == ElasticBall.SHRINK;
+        return growthDirection == Elastic.SHRINK;
     }
 
     private boolean growing() {
-        return growthDirection == ElasticBall.GROW;
+        return growthDirection == Elastic.GROW;
     }
 
-    public void update(Ball ball) {
-        growthDirection = reverseGrowthDirectionIfNecessary();
-        radius = next();
-        ball.radius = radius;
-    }
 }

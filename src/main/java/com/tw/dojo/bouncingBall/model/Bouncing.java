@@ -5,18 +5,20 @@ import com.tw.dojo.bouncingBall.ui.BallWorld;
 public class Bouncing implements Behaviour {
 
     private int direction;
-    protected int x;
     protected int y;
     protected int radius;
+    public static final int MOVEMENT_SPEED = 12;
 
+    static final int DOWN = 1;
+    static final int UP = -1;
     public Bouncing(int direction) {
         this.direction = direction;
     }
 
-    public void update(Ball ball) {
+    public int update(int y) {
+        this.y = y;
         direction = reverseDirectionIfNecessary();
-        y = move();
-        ball.y = y;
+        return move();
     }
 
     /***********************************************************************************
@@ -42,19 +44,19 @@ public class Bouncing implements Behaviour {
     }
 
     private int switchDirection() {
-        return movingDown() ? BouncingBall.UP : BouncingBall.DOWN;
+        return movingDown() ? Bouncing.UP : Bouncing.DOWN;
     }
 
     private int move() {
-        return y + (BouncingBall.MOVEMENT_SPEED * direction);
+        return y + (Bouncing.MOVEMENT_SPEED * direction);
     }
 
     private boolean movingDown() {
-        return direction == BouncingBall.DOWN;
+        return direction == Bouncing.DOWN;
     }
 
     private boolean movingUp() {
-        return direction == BouncingBall.UP;
+        return direction == Bouncing.UP;
     }
 
 }

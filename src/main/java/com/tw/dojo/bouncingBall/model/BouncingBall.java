@@ -1,12 +1,9 @@
 package com.tw.dojo.bouncingBall.model;
 
 public class BouncingBall extends Ball {
-    public static final int MOVEMENT_SPEED = 12;
 
-    static final int DOWN = 1;
-    static final int UP = -1;
 
-    private final Bouncing bouncing;
+    private final Behaviour bouncing;
 
     BouncingBall(int x, int y, Behaviour bouncing) {
         super(x, y);
@@ -15,7 +12,7 @@ public class BouncingBall extends Ball {
 
     @Override
     public void update() {
-        bouncing.update(this);
+        this.y = bouncing.update(this.y);
     }
 
 
