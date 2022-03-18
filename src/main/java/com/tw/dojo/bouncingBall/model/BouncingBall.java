@@ -8,9 +8,9 @@ public class BouncingBall extends Ball {
 
     private final Bouncing bouncing;
 
-    BouncingBall(int x, int y, int direction) {
+    BouncingBall(int x, int y, Behaviour bouncing) {
         super(x, y);
-        bouncing = new Bouncing(direction);
+        this.bouncing = bouncing;
     }
 
     @Override

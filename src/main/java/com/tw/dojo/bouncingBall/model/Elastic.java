@@ -1,10 +1,8 @@
 package com.tw.dojo.bouncingBall.model;
 
-public class Elastic {
+public class Elastic implements Behaviour {
 
     private int growthDirection;
-    protected int x;
-    protected int y;
     protected int radius;
 
     public Elastic(int growthDirection) {

@@ -2,7 +2,7 @@ package com.tw.dojo.bouncingBall.model;
 
 import com.tw.dojo.bouncingBall.ui.BallWorld;
 
-public class Bouncing {
+public class Bouncing implements Behaviour {
 
     private int direction;
     protected int x;
@@ -56,4 +56,5 @@ public class Bouncing {
     private boolean movingUp() {
         return direction == BouncingBall.UP;
     }
+
 }

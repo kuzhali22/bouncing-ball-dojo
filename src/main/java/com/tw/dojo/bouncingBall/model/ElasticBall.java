@@ -5,16 +5,16 @@ public class ElasticBall extends Ball {
 
     public static final int GROW = 1;
     public static final int SHRINK = -1;
-    private Elastic elastic;
+    private Behaviour behaviour;
 
-    ElasticBall(int x, int y, int radius, int growthDirection) {
+    ElasticBall(int x, int y, int radius, int growthDirection, Behaviour behaviour) {
         super(x, y, radius);
-        this.elastic = new Elastic(growthDirection);
+        this.behaviour = behaviour;
     }
 
     @Override
     public void update() {
-        elastic.update(this);
+        behaviour.update(this);
     }
 
 
