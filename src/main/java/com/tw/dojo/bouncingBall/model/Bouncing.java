@@ -15,10 +15,10 @@ public class Bouncing implements Behaviour {
         this.direction = direction;
     }
 
-    public int update(int y) {
-        this.y = y;
+    public void update(Ball ball) {
+        this.y = ball.y;
         direction = reverseDirectionIfNecessary();
-        return move();
+        ball.y = move();
     }
 
     /***********************************************************************************

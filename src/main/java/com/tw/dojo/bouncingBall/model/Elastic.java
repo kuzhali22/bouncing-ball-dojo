@@ -13,10 +13,10 @@ public class Elastic implements Behaviour {
     }
 
 
-    public int update(int radius) {
-        this.radius = radius;
+    public void update(Ball ball) {
+        this.radius = ball.radius;
         growthDirection = reverseGrowthDirectionIfNecessary();
-        return next();
+        ball.radius = next();
     }
 
     /***********************************************************************************

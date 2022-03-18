@@ -2,11 +2,27 @@ package com.tw.dojo.bouncingBall.model;
 
 import java.awt.*;
 
-public abstract class Ball {
+public class Ball {
     protected static final int DEFAULT_RADIUS = 50;
     protected int x;
     protected int y;
     protected int radius;
+    private Behaviour behaviour;
+
+    public Ball(int x, int y, int radius, Behaviour behaviour) {
+        this(x, y, radius);
+        this.behaviour = behaviour;
+    }
+
+    public Ball(int x, int y, Behaviour behaviour) {
+        this(x, y);
+        this.behaviour = behaviour;
+    }
+
+
+    public void update() {
+        behaviour.update(this);
+    }
 
     protected Ball(int x, int y, int radius) {
         this.x = x;
@@ -30,5 +46,4 @@ public abstract class Ball {
         return new Point(x, y);
     }
 
-    public abstract void update();
 }
